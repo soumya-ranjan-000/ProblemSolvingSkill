@@ -2,7 +2,7 @@ package recursion;
 
 import java.util.Scanner;
 
-public class App {
+public class FindFactorialOfANumber {
     public static void main(String[] args) {
         Scanner s=new Scanner(System.in);
         System.out.print("Enter a +ve number: ");

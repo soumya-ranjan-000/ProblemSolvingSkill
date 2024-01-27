@@ -1,2 +1,4 @@
-package LinkedList;public class CircularDoublyLinkedList {
+package LinkedList;
+
+public class CircularDoublyLinkedList {
 }
