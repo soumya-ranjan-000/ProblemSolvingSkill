@@ -1,5 +1,6 @@
 package basicproblems;
 
+import javax.print.DocFlavor;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -184,8 +185,42 @@ public class Main {
         System.out.println(key+" -> "+max);
     }
 
+    //Google Problem
+    static void p9(){
+        //Write a program to find the number of words in a string that are present in the original string in sequence.
+        //maintaining the original order
+        String str = "abbcde";
+        String[] words = {"a","bab","bba","acd", "ace", "abbe"};
+//       String[] words = {"a","abb","acd", "ace"};
+
+        int count=0;
+        for(String word:words){
+            StringBuilder builder = new StringBuilder(str);
+            char[] chars = word.toCharArray();
+            int prevCharIndex=-1;
+            boolean allCharactersPresentInCorrectOrder = true;
+            for (char aChar : chars) {
+                int currentCharIndex = builder.indexOf(String.valueOf(aChar), prevCharIndex + 1);
+                if (currentCharIndex == -1 || !(currentCharIndex > prevCharIndex)) {
+                    // check if character is present in original string or not
+                    // handle the duplication of character as well
+                    // check character is in correct original order or not
+                    allCharactersPresentInCorrectOrder = false;
+                    break;
+                } else {
+                    // check if duplicate character is there
+                    //remove the character from the original string if duplicate found
+                    prevCharIndex = currentCharIndex; // we are good to continue to check next character
+                }
+            }
+            if(allCharactersPresentInCorrectOrder) count++;
+        }
+        System.out.println(count);
+    }
+
     public static void main(String[] args) {
-        p8();
+//        p8();
+        p9();
     }
 }
 
